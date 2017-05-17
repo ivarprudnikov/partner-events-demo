@@ -36,7 +36,7 @@ getPartners(function (partners) {
 
 	console.log(partners.size());
 	var countryEvents = new CountryEvents(partners);
-	console.log(countryEvents);
+	console.log(JSON.stringify(countryEvents, null, 2));
 
 	apiRequest({
 		uri: "/results",
