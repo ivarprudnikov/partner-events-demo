@@ -1,6 +1,6 @@
 var Calendar = require('./Calendar');
 
-function CountryEvent(countryName, partnerList){
+function CountryEvent(countryName, partnerList) {
 	this.name = countryName;
 	this.attendeeCount = 0;
 	this.attendees = []
@@ -9,7 +9,7 @@ function CountryEvent(countryName, partnerList){
 	this.init(partnerList);
 }
 
-CountryEvent.prototype.init = function(partnerList){
+CountryEvent.prototype.init = function (partnerList) {
 	var calendar = new Calendar(partnerList);
 	var result = calendar.findEventDay()
 	this.attendeeCount = result.attendance

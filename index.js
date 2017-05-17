@@ -12,7 +12,7 @@ var apiRequest = request.defaults({
 	json: true
 });
 
-function getPartners(callback){
+function getPartners(callback) {
 
 	apiRequest({
 		uri: "/partners"
@@ -20,11 +20,11 @@ function getPartners(callback){
 
 		var partners;
 
-		if(error){
+		if (error) {
 			throw new Error(error);
 		}
 
-		if(response && response.statusCode === 200){
+		if (response && response.statusCode === 200) {
 			partners = new Partners(body.partners);
 		}
 
@@ -32,7 +32,7 @@ function getPartners(callback){
 	});
 }
 
-getPartners(function(partners){
+getPartners(function (partners) {
 
 	console.log(partners.size());
 	var countryEvents = new CountryEvents(partners);
@@ -41,12 +41,12 @@ getPartners(function(partners){
 	apiRequest({
 		uri: "/results",
 		body: countryEvents
-	}, function(error, response, body){
-		if(error){
+	}, function (error, response, body) {
+		if (error) {
 			throw new Error(error);
 		}
 
-		if(response && response.statusCode === 200){
+		if (response && response.statusCode === 200) {
 			console.log("All done!");
 		} else {
 			console.log("Try again!");

@@ -1,4 +1,4 @@
-function Partner(params){
+function Partner(params) {
 	this.firstName = params.firstName
 	this.lastName = params.lastName
 	this.email = params.email

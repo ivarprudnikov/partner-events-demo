@@ -92,7 +92,7 @@ Calendar.prototype.findEventDay = function () {
 			startDate: attendees.length > 0 ? dates[i] : null,
 			attendees: attendees.map(function (p) {
 				return p.email;
-			}).reduce(function(p, c) {
+			}).reduce(function (p, c) {
 				if (p.indexOf(c) < 0) p.push(c);
 				return p;
 			}, [])
@@ -106,9 +106,9 @@ Calendar.prototype.findEventDay = function () {
 		return memo;
 	}
 
-	return Object.keys(attendanceForEachStartDate).map(function(k){
+	return Object.keys(attendanceForEachStartDate).map(function (k) {
 		return attendanceForEachStartDate[k];
-	}).sort(function(a, b) {
+	}).sort(function (a, b) {
 		return b.attendance - a.attendance;
 	})[0]
 }
