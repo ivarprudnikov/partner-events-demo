@@ -40,7 +40,8 @@ getPartners(function (partners) {
 
 	apiRequest({
 		uri: "/results",
-		body: countryEvents
+		body: countryEvents,
+		method: "POST"
 	}, function (error, response, body) {
 		if (error) {
 			throw new Error(error);
@@ -49,7 +50,7 @@ getPartners(function (partners) {
 		if (response && response.statusCode === 200) {
 			console.log("All done!");
 		} else {
-			console.log("Try again!");
+			console.log("Try again!", response.statusCode);
 		}
 	})
 });

@@ -16,7 +16,6 @@ function Calendar(partners) {
 	this.init();
 }
 
-
 Calendar.prototype.init = function () {
 
 	var self = this;
@@ -44,7 +43,6 @@ Calendar.prototype.init = function () {
 		}, []).sort()
 
 		var mFrom = moment(dates[0]);
-
 		var mTo = moment(dates[dates.length - 1]);
 
 		var range = moment(mTo).diff(mFrom, 'days') + 1;
@@ -56,6 +54,7 @@ Calendar.prototype.init = function () {
 			}
 			cal[mFrom.format('YYYY-MM-DD')] = buildAttendanceForDay();
 		}
+
 		return cal;
 	}
 
@@ -77,6 +76,7 @@ Calendar.prototype.init = function () {
 
 Calendar.prototype.findEventDay = function () {
 	var cal = this.calendar;
+
 	var partnerList = this.partners;
 	var dates = Object.keys(this.calendar);
 	var attendanceForEachStartDate = {}
@@ -100,9 +100,8 @@ Calendar.prototype.findEventDay = function () {
 	}
 
 	function collectPartners(memo, val, idx) {
-		if (val > 0) {
-			memo.push(partnerList[idx])
-		}
+		var partner = partnerList[idx]
+		if (val > 0 && memo.indexOf(partner) < 0) memo.push(partner);
 		return memo;
 	}
 
